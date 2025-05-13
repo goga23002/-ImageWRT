@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WRT Production - Выбор Windows</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Фоновый узор -->
+    <div class="background-pattern"></div>
+
+    <!-- Экран входа -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-logo">
+                <img src="assets/avatar.jpg" alt="WRT Logo" class="login-avatar">
+            </div>
+            <h1 class="login-title">WRT_Production</h1>
+            <div class="input-group">
+                <label for="password">Пароль доступа</label>
+                <input type="password" id="password" placeholder="Введите пароль">
+            </div>
+            <button class="login-btn" onclick="checkPassword()">Войти в систему</button>
+            <div id="error" class="error-message"></div>
+            <div id="welcome-message" class="welcome-message"></div>
+        </div>
+    </div>
+
+    <!-- Основной интерфейс -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Боковое меню -->
+        <div class="sidebar">
+            <div class="user-profile">
+                <img src="assets/avatar.jpg" alt="Аватар" class="user-avatar">
+                <div class="user-name">Администратор</div>
+                <div class="user-role">WRT_Production</div>
+            </div>
+            
+            <div class="menu">
+                <div class="menu-section">
+                    <div class="menu-title">Основное</div>
+                    <a href="#" class="menu-item active" onclick="showSection('windows')">
+                        <div class="menu-icon">💿</div>
+                        <div>Образы Windows/Linux</div>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showSection('office')">
+                        <div class="menu-icon">📁</div>
+                        <div>Установщики Office</div>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showSection('stats')">
+                        <div class="menu-icon">📊</div>
+                        <div>Статистика</div>
+                    </a>
+                </div>
+                
+                <div class="menu-section">
+                    <div class="menu-title">Система</div>
+                    <a href="#" class="menu-item" onclick="showSection('settings')">
+                        <div class="menu-icon">⚙️</div>
+                        <div>Настройки</div>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showSection('drivers')">
+                        <div class="menu-icon">🖥️</div>
+                        <div>Драйверы</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основное содержимое -->
+        <div class="main-content">
+            <!-- Заголовок -->
+            <div class="header">
+                <div class="page-title" id="page-title">Образы Windows/Linux</div>
+                <div class="header-actions">
+                    <div class="current-time" id="current-time"></div>
+                    <button class="logout-btn" onclick="logout()">Выйти</button>
+                </div>
+            </div>
+
+            <!-- Секция выбора Windows/Linux -->
+            <div id="windows-section" class="content-section">
+                <!-- Карточки будут загружены через windows.js -->
+            </div>
+
+            <!-- Секция Office -->
+            <div id="office-section" class="content-section" style="display: none;">
+                <!-- Карточки будут загружены через windows.js -->
+            </div>
+
+            <!-- Секция статистики -->
+            <div id="stats-section" class="content-section" style="display: none;">
+                <!-- Данные будут загружены через stats.js -->
+            </div>
+
+            <!-- Секция настроек -->
+            <div id="settings-section" class="content-section" style="display: none;">
+                <!-- Форма будет загружена через settings.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/windows.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>
